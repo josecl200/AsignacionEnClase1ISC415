@@ -58,9 +58,10 @@ public class Filtros {
          *
          */
         before("/",(request,response) ->{
-            Usuario usuario=request.session(true).attribute("usuario");
+            Usuario usuario=request.session().attribute("usuario");
             if(usuario==null){
                 response.redirect("/formulario");
+                //halt(301, "No tiene permisos para acceder -- Lo dice el filtro....");
             }
         });
 
