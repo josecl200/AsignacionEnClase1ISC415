@@ -58,14 +58,21 @@ public class Filtros {
          *
          */
         before("/",(request,response) ->{
-            Usuario usuario=request.session().attribute("usuario");
-            if(usuario==null){
+            Usuario usuario = new Usuario(request.session().attribute("usuario"),request.session().attribute("contrasena"));
+            if(usuario.getUsuario()==null ){
                 response.redirect("/formulario");
                 //halt(301, "No tiene permisos para acceder -- Lo dice el filtro....");
+            }else if(!isTheUser(usuario.getUsuario(),usuario.getContrasena())){
+                response.redirect("/formulario");
             }
         });
 
+    }
 
-
+    private boolean isTheUser(String user, String pass){
+        if(user.equalsIgnoreCase("user") && pass.equals("1234")){
+            return true;
+        }
+        return false;
     }
 }
