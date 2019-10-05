@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Sesion</title>
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
-<body style="float :right;">
+    <body>
 
-<h1>Introduzca sus datos</h1>
-
-<form method="post" action="/registro">
-    <input type="text" name="usuario" />
-    <input type="password" name="contrasena" />
-    <input type="submit" name="enviar"/>
-</form>
-
-</body>
+    <h1 id="message">Introduzca sus datos</h1><small id="smallMessage"> </small>
+    <div class="container">
+        <form method="post" action="/registro">
+            <div class="field">
+                <input type="text" name="usuario" placeholder="Usuario" id="usuario" autocomplete="off"/>
+                <label for="usuario">Usuario</label>
+            </div>
+            <div class="field">
+            <input type="password" name="contrasena" placeholder="Contrasena" id="password"/>
+                <label for="password">Contrasena</label>
+            </div>
+            <input type="submit" name="enviar"/>
+        </form>
+    </div>
+    </body>
 </html>
+
